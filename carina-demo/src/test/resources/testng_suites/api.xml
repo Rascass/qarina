@@ -17,7 +17,12 @@
 
 	<test name="User API tests">
 		<classes>
-			<class name="com.qaprosoft.carina.demo.APISampleTest" />
+			<class name="com.qaprosoft.carina.demo.APISampleTest">
+				<methods>
+					<exclude name="testCreateUserg"></exclude>
+				</methods>
+			</class>
+			<class name="com.qaprosoft.carina.demo.OnlinerBaseTest" />
 		</classes>
 	</test>
 
