@@ -4,8 +4,10 @@ import com.qaprosoft.carina.core.foundation.AbstractTest;
 import com.qaprosoft.carina.demo.gui.pages.onliner.OnlinerBasePage;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 
 public class OnlinerBaseTest extends AbstractTest {
+
     protected OnlinerBasePage openHomePage(WebDriver driver) {
         OnlinerBasePage homePage = new OnlinerBasePage(driver);
         homePage.open();
