@@ -4,6 +4,8 @@ import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.qaprosoft.carina.demo.gui.enums.onliner.MenuItem;
 import com.qaprosoft.carina.demo.gui.pages.onliner.OnlinerBasePage;
 import com.qaprosoft.carina.demo.gui.pages.onliner.OnlinerCatalogPage;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -29,5 +31,20 @@ public class OnlinerCatalogTest extends OnlinerBaseTest {
                     String.format("Expected notebook model '%s' are not contained in the list!", model));
         }
 
+    }
+
+    @Test(description = "JIRA#AUTO-0010, search a product")
+    @MethodOwner(owner = "yantonuyk")
+    public void searchTest() {
+        OnlinerBasePage homePage = new OnlinerBasePage(getDriver());
+        homePage.open();
+        // OnlinerSearchFrame searchFrame = homePage.search("samsung");
+        // Assert.assertTrue(searchFrame.isPageOpened(), "search frame is opened");
+        WebElement searchField = getDriver().findElement(By.xpath("//input[@class='fast-search__input']"));
+        Assert.assertTrue(searchField.isDisplayed(), "search is displayed");
+        searchField.sendKeys("samsung");
+        getDriver().switchTo()
+                .frame(getDriver().findElement(By.className("modal-iframe")));
+        Assert.assertEquals(getDriver().getCurrentUrl(),"https://www.onliner.by/", "homePage is opened");
     }
 }

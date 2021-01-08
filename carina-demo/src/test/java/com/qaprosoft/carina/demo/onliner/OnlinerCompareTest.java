@@ -20,6 +20,6 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
-public class OnlinerCompareTest extends AbstractTest {
-    //
+public class OnlinerCompareTest extends OnlinerBaseTest {
+
 }
