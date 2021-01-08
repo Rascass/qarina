@@ -2,23 +2,24 @@ package com.qaprosoft.carina.demo.gui.components.onliner;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractUIObject;
+import com.qaprosoft.carina.demo.gui.pages.onliner.OnlinerCatalogItemPage;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class OnlinerSearchFrameCatalogComponent extends AbstractUIObject {
 
-    @FindBy(xpath = ".//a[@class='product__title-link']")
-    private ExtendedWebElement titleLink;
+    @FindBy(xpath = ".//iframe[@class='modal-iframe']")
+    private ExtendedWebElement modalIframe;
 
-    @FindBy(xpath = ".//span[@class='i-checkbox__faux']")
-    private ExtendedWebElement checkbox;
+    @FindBy(className = "search__input")
+    private ExtendedWebElement searchInput;
 
-    @FindBy(xpath = ".//a[@class='product__description']")
-    private ExtendedWebElement description;
-
-    @FindBy(xpath = ".a//[@class='product__price-value product__price-value_primary']/span")
-    private ExtendedWebElement price;
+    @FindBy(xpath = ".//a[@class='product__title-link'][contains(text(), '%s')]")
+    private ExtendedWebElement resulSuggestionItem;
 
     public OnlinerSearchFrameCatalogComponent(WebDriver driver) {
         super(driver);
@@ -28,23 +29,18 @@ public class OnlinerSearchFrameCatalogComponent extends AbstractUIObject {
         super(driver, searchContext);
     }
 
-    public ExtendedWebElement getTitleLink() {
-        return titleLink;
+    public void activate() {
+        driver.switchTo().frame(modalIframe.getElement());
     }
 
-    public String getTitle() {
-        return titleLink.getText();
+    public OnlinerSearchFrameCatalogComponent setSearchInput(String query) {
+        searchInput.type(query);
+
+        return this;
     }
 
-    public ExtendedWebElement getCheckbox() {
-        return checkbox;
-    }
-
-    public String getDescription() {
-        return description.getText();
-    }
-
-    public String getPrice() {
-        return price.getText();
+    public OnlinerCatalogItemPage navigateToProduct() {
+        searchInput.sendKeys(Keys.ENTER);
+        return new OnlinerCatalogItemPage(driver);
     }
 }
