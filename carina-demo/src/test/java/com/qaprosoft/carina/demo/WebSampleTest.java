@@ -16,15 +16,13 @@
 package com.qaprosoft.carina.demo;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.demo.gui.pages.googleclass.GoogleAuthentificationPage;
 import com.qaprosoft.carina.demo.gui.pages.googleclass.GoogleClassHomePage;
-import com.qaprosoft.carina.demo.gui.pages.onliner.OnlinerLaptopPage;
+import com.qaprosoft.carina.demo.gui.pages.onliner.OnlinerCatalogPage;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -112,16 +110,6 @@ public class WebSampleTest extends AbstractTest {
             System.out.println(n.readTitle());
             Assert.assertTrue(StringUtils.containsIgnoreCase(n.readTitle(), searchQ), "Invalid search results!");
         }
-    }
-    @Test(description = "JIRA#AUTO-0010")
-    @MethodOwner(owner = "qpsdemo")
-    public void testLaptopsSearsh() {
-        OnlinerLaptopPage homePage = new OnlinerLaptopPage(getDriver());
-        homePage.open();
-        for (ExtendedWebElement element: homePage.getLaptops()) {
-            System.out.println(element.getName());
-        }
-        Assert.assertEquals(homePage.getLaptops().size() > 1, true);
     }
 
     @Test(description = "JIRA#AUTO-0010")
