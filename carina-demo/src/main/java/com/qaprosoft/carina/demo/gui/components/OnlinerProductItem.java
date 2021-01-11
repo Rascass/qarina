@@ -18,8 +18,9 @@ public class OnlinerProductItem extends AbstractUIObject {
         super(driver, searchContext);
     }
 
-    public void selectProduct() {
+    public OnlinerProductItem selectProduct() {
         checkbox.check();
+        return this;
     }
 
     public String getTitle() {

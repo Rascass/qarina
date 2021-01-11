@@ -44,8 +44,8 @@ public class OnlinerCatalogPage extends AbstractPage {
             return products.get(index);
     }
 
-    public void selectProduct(String title) {
-        findByTitle(title).selectProduct();
+    public OnlinerProductItem selectProduct(String title) {
+        return findByTitle(title).selectProduct();
     }
 
     public boolean isProductSelected(String title) {
