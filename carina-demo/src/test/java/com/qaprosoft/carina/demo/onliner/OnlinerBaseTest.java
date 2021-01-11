@@ -1,10 +1,9 @@
-package com.qaprosoft.carina.demo;
+package com.qaprosoft.carina.demo.onliner;
 
 import com.qaprosoft.carina.core.foundation.AbstractTest;
 import com.qaprosoft.carina.demo.gui.pages.onliner.OnlinerBasePage;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 
 public class OnlinerBaseTest extends AbstractTest {
 
@@ -14,4 +13,5 @@ public class OnlinerBaseTest extends AbstractTest {
         Assert.assertTrue(homePage.isPageOpened(), "Onliner home page was not opened!");
         return homePage;
     }
+
 }

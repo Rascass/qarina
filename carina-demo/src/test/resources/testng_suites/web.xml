@@ -15,9 +15,10 @@
 	<parameter name="jenkinsJobExecutionOrder" value="1"/>
 	<parameter name="jenkinsJobExecutionMode" value="continue"/>
 
-	<test name="GSM arena web tests">
+	<test name="Onliner web tests basic">
 		<classes>
-			<class name="com.qaprosoft.carina.demo.WebSampleTest" />
+			<class name="com.qaprosoft.carina.demo.onliner.OnlinerNewsTest" />
+			<class name="com.qaprosoft.carina.demo.onliner.OnlinerCatalogTest" />
 		</classes>
 	</test>
 

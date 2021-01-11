@@ -31,25 +31,3 @@ public class Waits {
         return changed;
     }
 }
-
-
-/*
-public static Boolean waitForLogFound(GetLogsV1Method getLogsV1Method, int expectedCount) {
-        ExecutionServiceImpl apiExecutor = new ExecutionServiceImpl();
-
-        Wait wait = new FluentWait<GetLogsV1Method>(getLogsV1Method)
-                .withTimeout(TimeConstant.LOG_WITH_TIMEOUT_DURATION, TimeUnit.SECONDS)
-                .pollingEvery(TimeConstant.LOG_POLLING_EVERY_DURATION, TimeUnit.SECONDS);
-
-        boolean found = (boolean) wait
-                .until(new Function<GetLogsV1Method, Boolean>() {
-                           public Boolean apply(GetLogsV1Method getLogsV1Method) {
-                               return JsonPath.from
-                                       (apiExecutor.callApiMethod(getLogsV1Method)).
-                                       getInt(JSONConstant.TOTAL_RESULTS_KEY) == expectedCount;
-                           }
-                       }
-                );
-        return found;
-    }
- */

@@ -1,4 +1,4 @@
-package com.qaprosoft.carina.demo;
+package com.qaprosoft.carina.demo.onliner;
 
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.qaprosoft.carina.demo.gui.pages.onliner.OnlinerArticlePage;

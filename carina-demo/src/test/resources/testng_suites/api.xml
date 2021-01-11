@@ -22,7 +22,6 @@
 					<exclude name="testCreateUserg"></exclude>
 				</methods>
 			</class>
-			<class name="com.qaprosoft.carina.demo.OnlinerBaseTest" />
 		</classes>
 	</test>
 
