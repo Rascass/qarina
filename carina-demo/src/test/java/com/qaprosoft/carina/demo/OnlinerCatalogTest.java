@@ -41,7 +41,6 @@ public class OnlinerCatalogTest extends OnlinerBaseTest {
         OnlinerCatalogPage catalogPage = homePage.openCatalogPage(MenuItem.NOTEBOOKS);
         Assert.assertTrue(catalogPage.isPageOpened(), "Catalog page was not opened!");
         String title = catalogPage.getProductsTitles().get(0);
-        String title2 = catalogPage.getProductsTitles().get(1);
         catalogPage.selectProduct(title);
         Assert.assertTrue(catalogPage.isProductSelected(title));
     }

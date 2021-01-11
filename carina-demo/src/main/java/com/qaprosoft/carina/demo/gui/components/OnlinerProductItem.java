@@ -8,15 +8,11 @@ import org.openqa.selenium.support.FindBy;
 
 public class OnlinerProductItem extends AbstractUIObject {
 
-    @FindBy(xpath = ".//input[@class='i-checkbox__real'][@type='checkbox']")
+    @FindBy(className = "i-checkbox__real")
     private ExtendedWebElement checkbox;
 
-    @FindBy(xpath = ".//div[@class='schema-product__title']")
+    @FindBy(className = "schema-product__title")
     private ExtendedWebElement title;
-
-    public OnlinerProductItem(WebDriver driver) {
-        super(driver);
-    }
 
     public OnlinerProductItem(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
@@ -30,7 +26,7 @@ public class OnlinerProductItem extends AbstractUIObject {
         return title.getText();
     }
 
-    public boolean isChecked() {
+    public boolean isCheckedForComparison() {
         return checkbox.isChecked();
     }
 }

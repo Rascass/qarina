@@ -11,7 +11,6 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class OnlinerCatalogPage extends AbstractPage {
@@ -39,15 +38,10 @@ public class OnlinerCatalogPage extends AbstractPage {
     }
 
     private OnlinerProductItem findByTitle(String title) {
-        try {
             int index = products.stream().map(OnlinerProductItem::getTitle)
                     .collect(Collectors.toList())
                     .indexOf(title);
             return products.get(index);
-        } catch (Exception e) {
-            e.getStackTrace();
-        }
-        throw new NoSuchElementException(String.format("cannot find product with title: %s", title));
     }
 
     public void selectProduct(String title) {
@@ -55,7 +49,7 @@ public class OnlinerCatalogPage extends AbstractPage {
     }
 
     public boolean isProductSelected(String title) {
-        return findByTitle(title).isChecked();
+        return findByTitle(title).isCheckedForComparison();
     }
 
     public OnlinerComparePage compareSelectedProducts() {

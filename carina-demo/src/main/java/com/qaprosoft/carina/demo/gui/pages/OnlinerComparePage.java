@@ -9,7 +9,7 @@ import java.util.List;
 
 public class OnlinerComparePage extends AbstractPage {
 
-    @FindBy(xpath = "//tr[@class='product-table-cell-container']")
+    @FindBy(xpath = "//div[@class='product-table-cell-container']")
     private List<ExtendedWebElement> products;
 
     public OnlinerComparePage(WebDriver driver) {
