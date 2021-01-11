@@ -6,8 +6,6 @@ import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.Objects;
-
 public class OnlinerProductItem extends AbstractUIObject {
 
     @FindBy(xpath = ".//input[@class='i-checkbox__real'][@type='checkbox']")

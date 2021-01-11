@@ -17,8 +17,13 @@
 
 	<test name="Onliner web tests basic">
 		<classes>
+<<<<<<< HEAD
 			<class name="com.qaprosoft.carina.demo.OnlinerNewsTest" />
 			<class name="com.qaprosoft.carina.demo.OnlinerCatalogTest" />
+=======
+			<class name="com.qaprosoft.carina.demo.onliner.OnlinerNewsTest" />
+			<class name="com.qaprosoft.carina.demo.onliner.OnlinerCatalogTest" />
+>>>>>>> 782b286ca3919064d106c0439ec5e901d0a3cbb1
 		</classes>
 	</test>
 
