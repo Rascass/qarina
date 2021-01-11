@@ -18,7 +18,7 @@ public class OnlinerCompareTest extends OnlinerBaseTest {
         Assert.assertTrue(catalogPage.isPageOpened(), "Catalog page was not opened!");
         String title = catalogPage.getProductsTitles().get(0);
         catalogPage.selectProduct(title);
-        OnlinerComparePage comparePage = catalogPage.compareSelectedProducts();
+        OnlinerComparePage comparePage = catalogPage.navigateToComparePage();
         Assert.assertTrue(comparePage.isPageOpened(), "Compare page was not opened!");
     }
 }

@@ -18,6 +18,6 @@ public class OnlinerComparePage extends AbstractPage {
 
     @Override
     public boolean isPageOpened() {
-        return products.size() > 0;
+        return !products.isEmpty();
     }
 }

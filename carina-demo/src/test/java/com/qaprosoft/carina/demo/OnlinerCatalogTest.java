@@ -42,7 +42,7 @@ public class OnlinerCatalogTest extends OnlinerBaseTest {
         Assert.assertTrue(catalogPage.isPageOpened(), "Catalog page was not opened!");
         String title = catalogPage.getProductsTitles().get(0);
         catalogPage.selectProduct(title);
-        Assert.assertTrue(catalogPage.isProductSelected(title));
+        Assert.assertTrue(catalogPage.isProductSelected(title), "Product was not selected!");
     }
 
     @Test(description = "JIRA#AUTO-0010, search a product")
