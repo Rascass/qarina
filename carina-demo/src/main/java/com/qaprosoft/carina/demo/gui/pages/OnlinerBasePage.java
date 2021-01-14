@@ -3,10 +3,14 @@ package com.qaprosoft.carina.demo.gui.pages;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
 import com.qaprosoft.carina.demo.gui.components.OnlinerArticlePrimaryComponent;
+import com.qaprosoft.carina.demo.gui.components.OnlinerAuthComponent;
 import com.qaprosoft.carina.demo.gui.components.OnlinerSearchFrameCatalogComponent;
+import com.qaprosoft.carina.demo.gui.constant.LocatorConstant;
 import com.qaprosoft.carina.demo.gui.enums.MenuItem;
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,6 +35,12 @@ public class OnlinerBasePage extends AbstractPage {
 
     @FindBy(xpath = "//div[@id='fast-search-modal']")
     private OnlinerSearchFrameCatalogComponent searchFrame;
+
+    @FindBy(xpath = "//div[@class='auth-bar__item auth-bar__item--text']")
+    private ExtendedWebElement signIn;
+
+    @FindBy(className = "auth-form__body")
+    private OnlinerAuthComponent authForm;
 
     public OnlinerBasePage(WebDriver driver) {
         super(driver);
@@ -72,5 +82,10 @@ public class OnlinerBasePage extends AbstractPage {
     private OnlinerSearchFrameCatalogComponent getSearchFrame(String query) {
         searchField.type(query.substring(0, 1));
         return searchFrame;
+    }
+
+    public OnlinerBasePage authentication(String login, String password) {
+        signIn.click();
+        return authForm.authentication(login, password);
     }
 }
