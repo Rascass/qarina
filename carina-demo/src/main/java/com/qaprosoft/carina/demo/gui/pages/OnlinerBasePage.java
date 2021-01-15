@@ -6,6 +6,7 @@ import com.qaprosoft.carina.demo.gui.components.OnlinerArticlePrimaryComponent;
 import com.qaprosoft.carina.demo.gui.components.OnlinerAuthComponent;
 import com.qaprosoft.carina.demo.gui.components.OnlinerSearchFrameCatalogComponent;
 import com.qaprosoft.carina.demo.gui.constant.LocatorConstant;
+import com.qaprosoft.carina.demo.gui.constant.TimeoutConstant;
 import com.qaprosoft.carina.demo.gui.enums.MenuItem;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -87,5 +88,15 @@ public class OnlinerBasePage extends AbstractPage {
     public OnlinerBasePage authentication(String login, String password) {
         signIn.click();
         return authForm.authentication(login, password);
+    }
+
+    public String getUserId() throws InterruptedException {
+        Thread.sleep(1000);
+        try {
+            findExtendedWebElement(By.xpath(LocatorConstant.ICON)).click();
+            return findExtendedWebElement(By.xpath(LocatorConstant.USER_ID)).getText();
+        } catch(NoSuchElementException e) {
+            return "user was not authenticated";
+        }
     }
 }

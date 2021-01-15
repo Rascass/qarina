@@ -33,7 +33,6 @@ public class OnlinerSearchFrameCatalogComponent extends AbstractUIObject {
 
     public OnlinerSearchFrameCatalogComponent setSearchInput(String query) {
         searchInput.type(query);
-
         return this;
     }
 

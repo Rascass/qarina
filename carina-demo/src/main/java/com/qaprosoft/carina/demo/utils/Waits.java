@@ -14,7 +14,7 @@ public class Waits {
     private static final int POLLING_INTERVAL = 10;
 
     public static boolean isTextChanged(WebDriver driver, ExtendedWebElement element, String expectedText, int timeout) {
-        Wait wait = new FluentWait<WebDriver>(driver)
+        Wait wait = new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(timeout))
                 .pollingEvery(Duration.ofSeconds(POLLING_INTERVAL))
                 .ignoring(TimeoutException.class)
