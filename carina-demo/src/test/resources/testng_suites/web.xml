@@ -17,8 +17,9 @@
 
 	<test name="Onliner web tests basic">
 		<classes>
-			<class name="com.qaprosoft.carina.demo.onliner.OnlinerNewsTest" />
-			<class name="com.qaprosoft.carina.demo.onliner.OnlinerCatalogTest" />
+			<class name="com.qaprosoft.carina.demo.OnlinerNewsTest" />
+			<class name="com.qaprosoft.carina.demo.OnlinerCatalogTest" />
+			<class name="com.qaprosoft.carina.demo.OnlinerAuthTest" />
 		</classes>
 	</test>
 
