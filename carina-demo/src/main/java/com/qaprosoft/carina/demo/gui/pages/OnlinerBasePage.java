@@ -85,14 +85,14 @@ public class OnlinerBasePage extends AbstractPage {
         return searchFrame;
     }
 
-    public OnlinerBasePage authentication(String login, String password) {
+    public OnlinerBasePage authentication(String login, String password) throws InterruptedException {
         signIn.click();
         return authForm.authentication(login, password);
     }
 
-    public String getUserId() throws InterruptedException {
-        Thread.sleep(1000);
+    public String getUserId() {
         try {
+            findExtendedWebElement(By.xpath(LocatorConstant.ICON)).isPresent(75);
             findExtendedWebElement(By.xpath(LocatorConstant.ICON)).click();
             return findExtendedWebElement(By.xpath(LocatorConstant.USER_ID)).getText();
         } catch(NoSuchElementException e) {

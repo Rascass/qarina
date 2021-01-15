@@ -16,11 +16,20 @@ import java.util.concurrent.TimeoutException;
 
 public class OnlinerAuthComponent extends AbstractUIObject {
 
+//    @FindBy(xpath = ".//input[@placeholder='Ник или e-mail']")
+//    private WebElement logField;
+//
+//    @FindBy(xpath = ".//input[@type='password']")
+//    private WebElement passwordField;
+//
+//    @FindBy(className = "auth-button auth-button_primary auth-button_middle auth-form__button auth-form__button_width_full")
+//    private ExtendedWebElement authButton;
+//
     public OnlinerAuthComponent(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
     }
 
-    public OnlinerBasePage authentication(String login, String password) {
+    public OnlinerBasePage authentication(String login, String password) throws InterruptedException {
         WebElement activeElement = driver.switchTo().activeElement();
         WebElement logField = activeElement.findElement(By.xpath(LocatorConstant.LOGIN_FIELD));
         logField.sendKeys(login);
